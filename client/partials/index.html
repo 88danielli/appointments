@@ -1,0 +1,20 @@
+<a href="" ng-click="logout()">Logout</a>
+<h1>Doctor's Appointments {{user}}</h1>
+Search <form ng-submit="search()"><input type="text" ng-model="searchString"></form>
+<div ng-repeat="error in errors" ng-bind="error.message"></div>
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Patient Name</th>
+        <th>Complaint</th>
+    </tr>
+    <tr ng-repeat="appointment in appointments">
+        <td ng-bind="appointment.date | date: 'longDate'"></td>
+        <td ng-bind="appointment.time | date: 'shortTime'"></td>
+        <td ng-bind="appointment.user"></td>
+        <td>{{appointment.complaint}}  <button ng-click="delete(appointment)" ng-show="user == appointment.user">Cancel</button></td>
+    </tr>
+</table>
+<button type="button" ng-click="newPartial()">Add New Appointment</button>

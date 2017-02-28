@@ -1,0 +1,10 @@
+<h1>New Appointment</h1>
+{{user}}
+<div ng-repeat="error in errors" ng-bind="error.message"></div>
+
+<form name="myForm">
+    Date: <input type="date" ng-model="newAppointment.date"> Time: <input type="time" ng-model="newAppointment.time" min="08:00:00" max="17:00:00">
+    Complaint: <textarea ng-model="newAppointment.complaint" rows="8" cols="80"></textarea>
+    <button type="button" ng-click="cancel()">Cancel</button> <button type="button" ng-click="create(user)">Add Appointment</button>
+    
+</form>
